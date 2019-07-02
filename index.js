@@ -40,11 +40,10 @@ var path = require('path');
 
 app.use(express.static(path.resolve(__dirname, './dist')));
 app.get('*', function(req, res) {
-  var html = fs.readFileSync(path.resolve(__dirname, './dist/index.html'));
-  res.send(html);
+  res.sendfile('./dist/index.html');
 });
 
-const port = (process.env.PORT || 3000);
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log('http://localhost:3000');
 });
