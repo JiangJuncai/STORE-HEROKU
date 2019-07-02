@@ -40,7 +40,7 @@ var path = require('path');
 
 app.use(express.static(path.resolve(__dirname, './dist')));
 app.get('*', function(req, res) {
-  res.sendFile('./dist/index.html');
+  res.sendFile(path.resolve(__dirname, './dist/index.html'));
 });
 
 const port = process.env.PORT || 3000;
